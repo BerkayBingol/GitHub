@@ -1,0 +1,57 @@
+1-)select * from faa where score >='50' uçabilecek ucaklar yani testi geçenler, 50 puan üzerinde alanlar
+
+
+2-) select name from Airplane where name!=''
+
+
+3-)
+select *
+from employee a
+  join ( select address from employee group by address having count(*) > 1 ) b
+ on a.address = b.address
+———————
+//ayný addreste olanlarýn tüm listesini bastýr.
+
+4-)SELECT * FROM traffic_controller
+ORDER BY recent_medical_examination_date  ASC
+LIMIT 3
+
+//medical examinatona ihtiyacý olan ilk 3 kiþiyi yani testlerin tarihi en eski olan 3 leri getirir.
+
+5-)SELECT 
+union_name , 
+SUM(number_of_employee ) 
+FROM unions
+GROUP BY union_name
+ORDER BY sum ASC
+
+
+6-)SELECT 
+    airplane.registration_number,name FROM airplane
+INNER JOIN faa  ON (airplane.registration_number = faa.registration_number  AND score<='50' AND airplane.name!='null')
+
+Ýki tablodaki registration numberlarýný karþýalþtýrýp test scoreu 50 den kucuk olan yani most malfunctioning airplane models leri ekrana bastýran query
+
+7-)What is the most popular union among the technicians?
+SELECT union_id
+FROM technicians
+GROUP BY union_id
+HAVING count(*) > 1
+LIMIT 1
+
+220 union_id li olan en çok üyeye sahip teknisyenler arasýnda. isim deðeri istenmiyor diye döndürmedim.. 
+————
+
+10-)SELECT broken_reason
+FROM maintenance
+GROUP BY broken_reason
+HAVING count(*) > 1
+LIMIT 1
+
+
+
+
+
+
+
+------BERKAY BÝNGÖL 2014510016
